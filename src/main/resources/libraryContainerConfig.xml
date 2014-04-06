@@ -40,4 +40,19 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
         <constructor-arg name="id" value="0986423388"/>
         <constructor-arg name="phoneNumber" value="0507998526"/>
     </bean>
+
+    <bean id="myLibrary" class="org.springTest.Library">
+        <constructor-arg name="bookList">
+            <list>
+                <ref bean="myMathBook"/>
+                <ref bean="myThrillerBook"/>
+            </list>
+        </constructor-arg>
+        <constructor-arg name="bookReaders">
+            <set>
+                <ref bean="moshikReader"/>
+                <ref bean="lironReader"/>
+            </set>
+        </constructor-arg>
+    </bean>
 </beans>

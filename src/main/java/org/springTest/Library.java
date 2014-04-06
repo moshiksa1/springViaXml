@@ -9,4 +9,25 @@ import java.util.List;
 public class Library {
     private List<Book> bookList;
     private HashSet<BookReader> bookReaders;
+
+    public Library(List<Book> bookList, HashSet<BookReader> bookReaders){
+        this.setBookList(bookList);
+        this.setBookReaders(bookReaders);
+    }
+
+    public List<Book> getBookList() {
+        return bookList;
+    }
+
+    public void setBookList(List<Book> bookList) {
+        this.bookList = bookList;
+    }
+
+    public HashSet<BookReader> getBookReaders() {
+        return bookReaders;
+    }
+
+    public void setBookReaders(HashSet<BookReader> bookReaders) {
+        this.bookReaders = bookReaders;
+    }
 }

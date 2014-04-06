@@ -3,7 +3,7 @@ package org.springTest;
 /**
  * Created by moshiks on 3/31/14.
  */
-public class BookReader {
+public class BookReader implements IBookReader{
     private String firstName;
     private String lastName;
     private int age;
@@ -56,5 +56,16 @@ public class BookReader {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    @Override
+    public void printReader() {
+        System.out.println("Reader Details:");
+        System.out.println("----------------------------------------------------------------------");
+        System.out.println("First Name: " + firstName);
+        System.out.println("Last Name: " + lastName);
+        System.out.println("Age: " + age);
+        System.out.println("Id: " + id);
+        System.out.println("Phone Number: " + phoneNumber);
     }
 }
