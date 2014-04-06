@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="myMathBook" class="org.springTest.MathBook" >
+        <constructor-arg name="titleName" value="Trigo"/>
+        <constructor-arg name="author" value="Beni Goren"/>
+        <constructor-arg name="pagesNumber" value="789"/>
+        <constructor-arg name="price" value="89.99"/>
+        <constructor-arg name="level" value="Hard"/>
+        <constructor-arg name="totalExerciseNum" value="987"/>
+        <constructor-arg name="isHasFormulas" value="true"/>
+    </bean>
+
+    <bean id="myThrillerBook" class="org.springTest.ThrillerBook">
+        <constructor-arg name="titleName" value="Kenshoo go to hell"/>
+        <constructor-arg name="author" value="Moshik Salem"/>
+        <constructor-arg name="pagesNumber" value="123"/>
+        <constructor-arg name="price" value="34.89"/>
+        <constructor-arg name="keyCharacter" value="4"/>
+        <constructor-arg name="subCharacter" value="3"/>
+        <constructor-arg name="isGoodEnd" value="false"/>
+    </bean>
+
+    <bean id="moshikReader" class="org.springTest.BookReader">
+        <constructor-arg name="firstName" value="Moshik"/>
+        <constructor-arg name="lastName" value="Salem"/>
+        <constructor-arg name="age" value="30"/>
+        <constructor-arg name="id" value="021787221"/>
+        <constructor-arg name="phoneNumber" value="0547226999"/>
+    </bean>
+
+
+    <bean id="lironReader" class="org.springTest.BookReader">
+        <constructor-arg name="firstName" value="Liron"/>
+        <constructor-arg name="lastName" value="Salem"/>
+        <constructor-arg name="age" value="33"/>
+        <constructor-arg name="id" value="0986423388"/>
+        <constructor-arg name="phoneNumber" value="0507998526"/>
+    </bean>
+</beans>

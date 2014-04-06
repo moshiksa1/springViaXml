@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="firstBook" class="org.springTest.MathBook" >
+        <constructor-arg name="titleName" value="Trigo"/>
+        <constructor-arg name="author" value="Beni Goren"/>
+        <constructor-arg name="pagesNumber" value="789"/>
+        <constructor-arg name="price" value="89.99"/>
+        <constructor-arg name="level" value="Hard"/>
+        <constructor-arg name="totalExerciseNum" value="987"/>
+        <constructor-arg name="isHasFormulas" value="true"/>
+    </bean>
+</beans>
