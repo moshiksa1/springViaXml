@@ -1,5 +1,6 @@
 package org.springTest;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 
@@ -10,10 +11,22 @@ public class Library {
     private List<Book> bookList;
     private HashSet<BookReader> bookReaders;
 
-    public Library(List<Book> bookList, HashSet<BookReader> bookReaders){
-        this.setBookList(bookList);
-        this.setBookReaders(bookReaders);
+    public Library(){
+        bookList = new ArrayList<Book>();
+        bookReaders = new HashSet<BookReader>();
     }
+
+//    public void setBookList(Book myBook){
+//        bookList.add(myBook);
+//    }
+
+//    public void setBookReaders(BookReader myReader){
+//        bookReaders.add(myReader);
+//    }
+//    public Library(List<Book> bookList, HashSet<BookReader> bookReaders){
+//        this.setBookList(bookList);
+//        this.setBookReaders(bookReaders);
+//    }
 
     public List<Book> getBookList() {
         return bookList;
