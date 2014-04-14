@@ -1,47 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="
-http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+    <!--xmlns:context="http://www.springframework.org/schema/context"-->
+
+    <!--http://www.springframework.org/schema/context-->
+    <!--http://www.springframework.org/schema/context/spring-context.xsd-->
+    <!---->
+    <!--<context:annotation-config/>-->
 
     <bean id="myMathBook" class="org.springTest.MathBook" >
-        <constructor-arg name="titleName" value="Trigo"/>
-        <constructor-arg name="author" value="Beni Goren"/>
-        <constructor-arg name="pagesNumber" value="789"/>
-        <constructor-arg name="price" value="89.99"/>
-        <constructor-arg name="level" value="Hard"/>
-        <constructor-arg name="totalExerciseNum" value="987"/>
-        <constructor-arg name="isHasFormulas" value="true"/>
+        <constructor-arg value="Trigo"/>
+        <constructor-arg value="Beni Goren"/>
+        <constructor-arg value="789"/>
+        <constructor-arg value="89.99"/>
+        <constructor-arg value="Hard"/>
+        <constructor-arg value="987"/>
+        <constructor-arg value="true"/>
     </bean>
 
     <bean id="myThrillerBook" class="org.springTest.ThrillerBook">
-        <constructor-arg name="titleName" value="Kenshoo go to hell"/>
-        <constructor-arg name="author" value="Moshik Salem"/>
-        <constructor-arg name="pagesNumber" value="123"/>
-        <constructor-arg name="price" value="34.89"/>
-        <constructor-arg name="keyCharacter" value="4"/>
-        <constructor-arg name="subCharacter" value="3"/>
-        <constructor-arg name="isGoodEnd" value="false"/>
+        <constructor-arg value="Kenshoo go to hell"/>
+        <constructor-arg value="Moshik Salem"/>
+        <constructor-arg value="123"/>
+        <constructor-arg value="34.89"/>
+        <constructor-arg value="4"/>
+        <constructor-arg value="3"/>
+        <constructor-arg value="false"/>
     </bean>
 
-    <bean id="moshikReader" class="org.springTest.BookReader">
-        <constructor-arg name="firstName" value="Moshik"/>
-        <constructor-arg name="lastName" value="Salem"/>
-        <constructor-arg name="age" value="30"/>
-        <constructor-arg name="id" value="021787221"/>
-        <constructor-arg name="phoneNumber" value="0547226999"/>
+    <bean id="br1" class="org.springTest.BookReader">
+        <constructor-arg value="Moshik"/>
+        <constructor-arg value="Salem"/>
+        <constructor-arg value="30"/>
+        <constructor-arg value="021787221"/>
+        <constructor-arg value="0547226999"/>
+        <!--<qualifier value="myReader" />-->
     </bean>
 
 
-    <bean id="lironReader" class="org.springTest.BookReader">
-        <constructor-arg name="firstName" value="Liron"/>
-        <constructor-arg name="lastName" value="Salem"/>
-        <constructor-arg name="age" value="33"/>
-        <constructor-arg name="id" value="0986423388"/>
-        <constructor-arg name="phoneNumber" value="0507998526"/>
+    <bean id="br2" class="org.springTest.BookReader">
+        <!--<qualifier value="myReader" />-->
+        <constructor-arg value="Liron"/>
+        <constructor-arg value="Salem"/>
+        <constructor-arg value="33"/>
+        <constructor-arg value="0986423388"/>
+        <constructor-arg value="0507998526"/>
     </bean>
 
-    <bean id="myLibrary" class="org.springTest.Library" autowire="byType">
+    <bean id="myLibrary" class="org.springTest.Library">
+        <!--autowire="byType">-->
         <!--<constructor-arg name="bookList">-->
             <!--<list>                -->
                 <!--<ref bean="myMathBook"/>-->
@@ -55,4 +68,15 @@ http://www.springframework.org/schema/beans http://www.springframework.org/schem
             <!--</set>-->
         <!--</constructor-arg>-->
     </bean>
+
+    <bean id="speaker" class="org.springTest.LibrarySpeaker"/>
+
+    <aop:config>
+        <aop:aspect ref="speaker">
+            <aop:pointcut id="libPointCut1" expression="execution(* org.springTest.Library.readerStepInsideLibrary(..))"/>
+                <aop:before pointcut-ref="libPointCut1" method="announceReaderStepInside"/>
+            <aop:pointcut id="libPointCut2" expression="execution(* org.springTest.Library.readerStepOutsideLibrary(..))"/>
+                <aop:after pointcut-ref="libPointCut2" method="announceReaderStepOutside"/>
+        </aop:aspect>
+    </aop:config>
 </beans>

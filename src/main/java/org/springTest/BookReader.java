@@ -1,8 +1,14 @@
 package org.springTest;
 
+import org.springframework.beans.factory.annotation.Qualifier;
+
+import javax.annotation.Resource;
+
 /**
  * Created by moshiks on 3/31/14.
  */
+//@Resource
+@Qualifier(value = "myReader")
 public class BookReader implements IBookReader{
     private String firstName;
     private String lastName;
