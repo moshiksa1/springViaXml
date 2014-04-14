@@ -23,8 +23,8 @@ public class myMain {
         myLibrary.readerStepInsideLibrary(r1);
         myLibrary.readerStepInsideLibrary(r2);
 
-        r1.printReader();
-        r2.printReader();
+//        r1.printReader();
+//        r2.printReader();
 
         myLibrary.readerStepOutsideLibrary(r2);
         myLibrary.readerStepOutsideLibrary(r1);

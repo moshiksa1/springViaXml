@@ -73,8 +73,8 @@
 
     <aop:config>
         <aop:aspect ref="speaker">
-            <aop:pointcut id="libPointCut1" expression="execution(* org.springTest.Library.readerStepInsideLibrary(..))"/>
-                <aop:before pointcut-ref="libPointCut1" method="announceReaderStepInside"/>
+            <aop:pointcut id="libPointCut1" expression="execution(* org.springTest.Library.readerStepInsideLibrary(org.springTest.BookReader)) and args(r)"/>
+                <aop:before pointcut-ref="libPointCut1" method="announceReaderStepInside" arg-names="r"/>
             <aop:pointcut id="libPointCut2" expression="execution(* org.springTest.Library.readerStepOutsideLibrary(..))"/>
                 <aop:after pointcut-ref="libPointCut2" method="announceReaderStepOutside"/>
         </aop:aspect>
