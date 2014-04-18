@@ -79,4 +79,15 @@
                 <aop:after pointcut-ref="libPointCut2" method="announceReaderStepOutside"/>
         </aop:aspect>
     </aop:config>
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/LibraryDB" />
+        <property name="username" value="root" />
+        <property name="password" value="jpz2bc3" />
+    </bean>
+
+    <bean id="IMathBookDAO" class="org.springTest.IMathBookDAO">
+        <property name="dataSource" ref="dataSource" />
+    </bean>
 </beans>
