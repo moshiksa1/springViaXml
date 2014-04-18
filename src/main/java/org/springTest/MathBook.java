@@ -1,7 +1,5 @@
 package org.springTest;
 
-import java.util.Date;
-
 /**
  * Created by moshiks on 3/31/14.
  */
@@ -51,6 +49,6 @@ public class MathBook extends Book {
         System.out.println("***********************");
         System.out.println("Level: " + level);
         System.out.println("Total exercise Number: " + totalExerciseNum);
-        System.out.println("Is this math book has formulas: " + isHasFormulas);
+        System.out.println("Is this math book has formulas: " + isHasFormulas());
     }
 }

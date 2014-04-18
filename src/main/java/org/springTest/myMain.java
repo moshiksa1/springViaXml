@@ -19,6 +19,12 @@ public class myMain {
         Library myLibrary = (Library)ctx.getBean("myLibrary");
         r1 = (BookReader)ctx.getBean("br1");
         r2 = (BookReader)ctx.getBean("br2");
+        b1 = (MathBook)ctx.getBean("myMathBook");
+        //b2 = (ThrillerBook)ctx.getBean("myThrillerBook");
+        IMathBookDAO iMathBookDAO = (IMathBookDAO)ctx.getBean("IMathBookDAO");
+
+        iMathBookDAO.insertMathBook((MathBook) b1);
+        //iMathBookDAO.insertMathBook(b2);
 
         myLibrary.readerStepInsideLibrary(r1);
         myLibrary.readerStepInsideLibrary(r2);
